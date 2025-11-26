@@ -1,0 +1,1230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Chirag Sharma | DevOps Engineer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="DevOps Engineer portfolio - Cloud, Kubernetes, AWS, Automation, CI/CD." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    :root {
+      --primary: #0b63ce;
+      --primary-dark: #084a99;
+      --accent: #0099ff;
+      --bg: #f5f7fb;
+      --bg-alt: #ffffff;
+      --text-main: #1f2933;
+      --text-muted: #6b7280;
+      --border-subtle: #e2e8f0;
+      --radius-lg: 18px;
+      --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.08);
+      --transition-fast: 0.2s ease;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Header / Nav */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(16px);
+      background: rgba(245, 247, 251, 0.85);
+      border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 70px;
+    }
+
+    .nav__brand {
+      font-weight: 700;
+      font-size: 1.1rem;
+      letter-spacing: 0.03em;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .nav__brand-mark {
+      width: 26px;
+      height: 26px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 0.85rem;
+    }
+
+    .nav__links {
+      display: flex;
+      gap: 1.25rem;
+      align-items: center;
+      font-size: 0.95rem;
+    }
+
+    .nav__link {
+      position: relative;
+      padding-bottom: 2px;
+      cursor: pointer;
+      color: var(--text-muted);
+      transition: color var(--transition-fast);
+    }
+
+    .nav__link::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      border-radius: 999px;
+      transition: width var(--transition-fast);
+    }
+
+    .nav__link:hover {
+      color: var(--primary);
+    }
+
+    .nav__link:hover::after {
+      width: 100%;
+    }
+
+    .nav__cta {
+      padding: 0.4rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid rgba(11, 99, 206, 0.16);
+      background: #ffffff;
+      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      cursor: pointer;
+      transition: background var(--transition-fast), box-shadow var(--transition-fast),
+        transform var(--transition-fast);
+    }
+
+    .nav__cta:hover {
+      background: #e9f2ff;
+      box-shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
+      transform: translateY(-1px);
+    }
+
+    .nav__cta span {
+      font-size: 1.1rem;
+    }
+
+    .nav__toggle {
+      display: none;
+      border: none;
+      background: transparent;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    /* Hero */
+    .hero {
+      padding: 3rem 0 2.5rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 3fr 2.4fr;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .hero__kicker {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--primary-dark);
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero__title {
+      font-size: 2.15rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      color: #0b1120;
+    }
+
+    .hero__subtitle {
+      font-size: 1rem;
+      color: var(--text-muted);
+      margin-bottom: 1.4rem;
+      max-width: 34rem;
+    }
+
+    .hero__title span {
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero__meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.6rem;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    .meta-pill {
+      padding: 0.18rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(11, 99, 206, 0.06);
+      color: var(--primary-dark);
+      border: 1px solid rgba(11, 99, 206, 0.14);
+    }
+
+    .hero__actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      align-items: center;
+    }
+
+    .btn {
+      border-radius: 999px;
+      font-size: 0.95rem;
+      padding: 0.6rem 1.4rem;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      transition: background var(--transition-fast), box-shadow var(--transition-fast),
+        transform var(--transition-fast), color var(--transition-fast);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: #ffffff;
+      box-shadow: 0 16px 32px rgba(15, 23, 42, 0.18);
+    }
+
+    .btn-primary:hover {
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.22);
+      transform: translateY(-1px);
+    }
+
+    .btn-outline {
+      background: #ffffff;
+      color: var(--primary-dark);
+      border: 1px solid rgba(148, 163, 184, 0.7);
+    }
+
+    .btn-outline:hover {
+      background: #f1f5f9;
+    }
+
+    .hero__right-card {
+      background: var(--bg-alt);
+      border-radius: var(--radius-lg);
+      padding: 1.4rem 1.5rem;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(226, 232, 240, 0.9);
+    }
+
+    .hero__right-heading {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 0.8rem;
+    }
+
+    .hero__stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 1.1rem;
+    }
+
+    .stack-pill {
+      font-size: 0.8rem;
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      background: #f8fafc;
+      border: 1px solid var(--border-subtle);
+      color: #334155;
+    }
+
+    .hero__highlights {
+      list-style: none;
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      display: grid;
+      gap: 0.4rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero__highlights li span {
+      color: var(--primary-dark);
+      font-weight: 600;
+    }
+
+    .hero__status {
+      font-size: 0.8rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.3rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(34, 197, 94, 0.08);
+      color: #15803d;
+      border: 1px solid rgba(34, 197, 94, 0.35);
+    }
+
+    .hero__status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.3);
+    }
+
+    /* Sections */
+    section {
+      padding: 2.5rem 0 1.5rem;
+    }
+
+    .section__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 1rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .section__title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #0f172a;
+    }
+
+    .section__subtitle {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    /* About */
+    .about {
+      display: grid;
+      grid-template-columns: 3fr 2fr;
+      gap: 2rem;
+    }
+
+    .about__text {
+      font-size: 0.95rem;
+      color: #374151;
+    }
+
+    .about__text p + p {
+      margin-top: 0.7rem;
+    }
+
+    .about__list {
+      list-style: none;
+      margin-top: 0.9rem;
+      display: grid;
+      gap: 0.35rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .about__panel {
+      background: var(--bg-alt);
+      border-radius: var(--radius-lg);
+      padding: 1rem 1.2rem;
+      border: 1px solid var(--border-subtle);
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .about__panel strong {
+      color: #0f172a;
+    }
+
+    /* Skills */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .skill-card {
+      background: var(--bg-alt);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-subtle);
+      padding: 0.9rem 1rem;
+      font-size: 0.9rem;
+    }
+
+    .skill-card h3 {
+      font-size: 0.92rem;
+      margin-bottom: 0.35rem;
+      color: #0f172a;
+    }
+
+    .skill-card p {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      margin-bottom: 0.45rem;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.3rem;
+      font-size: 0.78rem;
+    }
+
+    .skill-tag {
+      padding: 0.18rem 0.55rem;
+      border-radius: 999px;
+      background: #f8fafc;
+      border: 1px solid var(--border-subtle);
+    }
+
+    /* Experience */
+    .experience-list {
+      display: grid;
+      gap: 0.9rem;
+    }
+
+    .exp-card {
+      background: var(--bg-alt);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-subtle);
+      padding: 0.9rem 1rem;
+      font-size: 0.9rem;
+    }
+
+    .exp-card__header {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.75rem;
+      align-items: baseline;
+      margin-bottom: 0.25rem;
+    }
+
+    .exp-card__role {
+      font-weight: 600;
+      color: #0f172a;
+    }
+
+    .exp-card__company {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+    }
+
+    .exp-card__meta {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .exp-card ul {
+      margin-top: 0.35rem;
+      padding-left: 1.1rem;
+      display: grid;
+      gap: 0.18rem;
+      color: #4b5563;
+    }
+
+    .exp-card li {
+      font-size: 0.86rem;
+    }
+
+    /* Projects */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .project-card {
+      background: var(--bg-alt);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-subtle);
+      padding: 0.9rem 1rem;
+      font-size: 0.9rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 170px;
+    }
+
+    .project-card h3 {
+      font-size: 0.95rem;
+      margin-bottom: 0.25rem;
+      color: #0f172a;
+    }
+
+    .project-card p {
+      font-size: 0.86rem;
+      color: #4b5563;
+      margin-bottom: 0.45rem;
+    }
+
+    .project-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .project-link {
+      margin-top: 0.4rem;
+      font-size: 0.82rem;
+      color: var(--primary-dark);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.2rem;
+    }
+
+    /* Contact */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 3fr 2fr;
+      gap: 1.6rem;
+    }
+
+    .contact-card {
+      background: var(--bg-alt);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-subtle);
+      padding: 1rem 1.2rem;
+    }
+
+    .contact-card p {
+      font-size: 0.9rem;
+      color: #4b5563;
+      margin-bottom: 0.7rem;
+    }
+
+    .contact-list {
+      list-style: none;
+      display: grid;
+      gap: 0.4rem;
+      font-size: 0.88rem;
+    }
+
+    .contact-list span {
+      font-weight: 500;
+      color: #0f172a;
+    }
+
+    .contact-note {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 0.6rem;
+    }
+
+    .contact-form {
+      display: grid;
+      gap: 0.6rem;
+      font-size: 0.86rem;
+    }
+
+    .contact-form label {
+      font-weight: 500;
+      font-size: 0.85rem;
+      color: #0f172a;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 0.45rem 0.55rem;
+      border-radius: 10px;
+      border: 1px solid var(--border-subtle);
+      background: #f8fafc;
+      font-family: inherit;
+      font-size: 0.86rem;
+    }
+
+    .contact-form textarea {
+      min-height: 90px;
+      resize: vertical;
+    }
+
+    /* Footer */
+    footer {
+      padding: 1.8rem 0 1.6rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      border-top: 1px solid var(--border-subtle);
+      padding-top: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 0.9rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      text-decoration: underline;
+      text-decoration-style: dotted;
+      text-underline-offset: 3px;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 2.1rem;
+      }
+
+      .about,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .skills-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .nav__links {
+        position: absolute;
+        inset: 70px 0 auto 0;
+        background: rgba(245, 247, 251, 0.97);
+        border-bottom: 1px solid rgba(226, 232, 240, 0.9);
+        padding: 0.8rem 1.5rem 1rem;
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.7rem;
+      }
+
+      .nav__links--open {
+        display: flex;
+      }
+
+      .nav__toggle {
+        display: block;
+      }
+
+      .hero__title {
+        font-size: 1.7rem;
+      }
+
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="nav">
+        <div class="nav__brand">
+          <div class="nav__brand-mark">CS</div>
+          <span>Chirag Sharma</span>
+        </div>
+        <button class="nav__toggle" aria-label="Toggle navigation" id="navToggle">☰</button>
+        <div class="nav__links" id="navLinks">
+          <a class="nav__link" data-scroll="#about">About</a>
+          <a class="nav__link" data-scroll="#skills">Skills</a>
+          <a class="nav__link" data-scroll="#experience">Experience</a>
+          <a class="nav__link" data-scroll="#projects">Projects</a>
+          <a class="nav__link" data-scroll="#contact">Contact</a>
+          <a
+            class="nav__cta"
+            href="YOUR_RESUME_LINK.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span>⬇</span> Resume
+          </a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero" id="home">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero__left">
+            <div class="hero__kicker">DevOps Engineer | Cloud | Kubernetes | AWS | Automation</div>
+            <h1 class="hero__title">
+              I design & automate<br />
+              <span>reliable cloud infrastructure</span>.
+            </h1>
+            <p class="hero__subtitle">
+                I’m a DevOps Engineer with hands-on experience across AWS, Kubernetes, and automation tooling. I enjoy working on infrastructure that is consistent, observable, and easy to operate. I’m particularly interested in improving delivery workflows, learning new platforms, and staying aligned with evolving cloud and DevOps practices.
+            </p>
+            <div class="hero__meta">
+              <span class="meta-pill">3+ years DevOps experience</span>
+              <span class="meta-pill">AWS · Kubernetes · Terraform · Jenkins</span>
+            </div>
+            <div class="hero__actions">
+              <a class="btn btn-primary" data-scroll="#projects">
+                View Projects
+              </a>
+              <a
+                class="btn btn-outline"
+                href="mailto:YOUR_EMAIL_ID_HERE"
+              >
+                Contact Me
+              </a>
+            </div>
+          </div>
+
+          <aside class="hero__right-card">
+            <div class="hero__right-heading">Snapshot</div>
+            <div class="hero__stack">
+              <span class="stack-pill">AWS</span>
+              <span class="stack-pill">Kubernetes / EKS</span>
+              <span class="stack-pill">Docker</span>
+              <span class="stack-pill">Terraform</span>
+              <span class="stack-pill">Ansible</span>
+              <span class="stack-pill">Jenkins</span>
+              <span class="stack-pill">Linux</span>
+              <span class="stack-pill">GitHub Actions</span>
+              <span class="stack-pill">Prometheus · Grafana</span>
+              <span class="stack-pill">Cloudwatch · Zabbix</span>
+            </div>
+            <ul class="hero__highlights">
+              <li><span>Cloud:</span> Designed and managed AWS-based infra (VPC, EC2, S3, RDS, IAM).</li>
+              <li>
+                <span>Containers:</span> Deployed microservices to Kubernetes with proper ingress,
+                scaling & monitoring.
+              </li>
+              <li>
+                <span>CI/CD:</span> Built pipelines for automated testing, security scans & zero-downtime
+                deployments.
+              </li>
+              <li>
+                <span>Reliability:</span> Focus on observability, alerting and disaster recovery.
+              </li>
+            </ul>
+            <div class="hero__status">
+              <span class="hero__status-dot"></span>
+              Open to DevOps / SRE / Platform roles
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+      <div class="container">
+        <div class="section__header">
+          <h2 class="section__title">About</h2>
+          <p class="section__subtitle">
+            Who I am, how I work, and what problems I like solving.
+          </p>
+        </div>
+        <div class="about">
+          <div>
+            <div class="about__text">
+              <p>
+                I’m a DevOps Engineer who enjoys designing systems that are
+                <strong>predictable, observable, and easy to operate</strong>. My work lives at the
+                intersection of cloud infrastructure, CI/CD, Kubernetes, and automation.
+              </p>
+              <p>
+                I’ve worked with teams to ship applications faster while improving reliability,
+                setting up infrastructure as code, standardizing pipelines, and adding monitoring
+                that actually helps during incidents.
+              </p>
+              <p>
+                I’m comfortable digging into Linux internals, debugging failing deployments, and
+                collaborating with developers to make delivery smoother end-to-end.
+              </p>
+              <ul class="about__list">
+                <li>💻 Strong in AWS, Kubernetes, Docker, Terraform, Jenkins.</li>
+                <li>🛠 Hands-on with monitoring, logging, and alerting stacks.</li>
+                <li>📦 Believe in automation, repeatability, and good documentation.</li>
+              </ul>
+            </div>
+          </div>
+          <aside class="about__panel">
+            <p><strong>What I’m a good fit for:</strong></p>
+            <p>
+              DevOps / SRE / Platform roles where teams need help with:
+            </p>
+            <ul class="about__list">
+              <li>Building reliable CI/CD workflows.</li>
+              <li>Implementing secure AWS architectures.</li>
+              <li>Linux System Hardening & Compliance</li>
+              <li>Strengthening monitoring, logging, and operational visibility across services.</li>
+              <li>Writing automation scripts using Python and Bash to reduce manual effort and improve consistency.</li>
+            </ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills">
+      <div class="container">
+        <div class="section__header">
+          <h2 class="section__title">Skills</h2>
+          <p class="section__subtitle">
+            A quick overview of the tools & platforms I work with day-to-day.
+          </p>
+        </div>
+        <div class="skills-grid">
+          <div class="skill-card">
+            <h3>Cloud & Infra</h3>
+            <p>AWS-focused infrastructure design, security and networking.</p>
+            <div class="skill-tags">
+              <span class="skill-tag">AWS</span>
+              <span class="skill-tag">VPC / Subnets</span>
+              <span class="skill-tag">EC2</span>
+              <span class="skill-tag">S3</span>
+              <span class="skill-tag">RDS</span>
+              <span class="skill-tag">IAM</span>
+            </div>
+          </div>
+          <div class="skill-card">
+            <h3>Containers & Orchestration</h3>
+            <p>Packaging applications and running them reliably at scale.</p>
+            <div class="skill-tags">
+              <span class="skill-tag">Docker</span>
+              <span class="skill-tag">Kubernetes</span>
+              <span class="skill-tag">EKS</span>
+              <span class="skill-tag">Helm</span>
+              <span class="skill-tag">Ingress</span>
+            </div>
+          </div>
+          <div class="skill-card">
+            <h3>CI/CD & Automation</h3>
+            <p>Automating build, test, deploy and environment provisioning.</p>
+            <div class="skill-tags">
+              <span class="skill-tag">Jenkins</span>
+              <span class="skill-tag">GitHub Actions</span>
+              <span class="skill-tag">GitLab CI</span>
+              <span class="skill-tag">Ansible</span>
+              <span class="skill-tag">Bash</span>
+              <span class="skill-tag">Python</span>
+            </div>
+          </div>
+          <div class="skill-card">
+            <h3>Infrastructure as Code & Configuration Management</h3>
+            <p>Version-controlled, repeatable environments.</p>
+            <div class="skill-tags">
+              <span class="skill-tag">Terraform</span>
+              <span class="skill-tag">CloudFormation (basic)</span>
+              <span class="skill-tag">Pulumi (basic)</span>
+              <span class="skill-tag">Ansible</span>
+            </div>
+          </div>
+          <div class="skill-card">
+            <h3>Monitoring & Reliability</h3>
+            <p>Keeping systems observable and reducing surprises.</p>
+            <div class="skill-tags">
+              <span class="skill-tag">Prometheus</span>
+              <span class="skill-tag">Grafana</span>
+              <span class="skill-tag">Zabbix</span>
+              <span class="skill-tag">Graylog</span>
+              <span class="skill-tag">Splunk</span>
+            </div>
+          </div>
+          <div class="skill-card">
+            <h3>Languages & OS</h3>
+            <p>Writing glue code and working close to the OS.</p>
+            <div class="skill-tags">
+              <span class="skill-tag">Linux</span>
+              <span class="skill-tag">Bash</span>
+              <span class="skill-tag">Python</span>
+              <span class="skill-tag">Git</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience">
+      <div class="container">
+        <div class="section__header">
+          <h2 class="section__title">Experience</h2>
+          <p class="section__subtitle">
+            A brief summary of my recent roles and responsibilities.
+          </p>
+        </div>
+        <div class="experience-list">
+          <article class="exp-card">
+            <div class="exp-card__header">
+              <div>
+                <div class="exp-card__role">Software Engineer 1 - DevOps</div>
+                <div class="exp-card__company">Worldpay Pvt LTD.</div>
+              </div>
+              <div class="exp-card__meta">2022 – present (Hybrid) Pune</div>
+            </div>
+            <ul>
+              <li>
+                Designed and maintained AWS-based infrastructure with proper networking, security
+                groups and IAM policies.
+              </li>
+              <li>
+                Built CI/CD pipelines (Jenkins) for backend and microservice
+                deployments to Openshift & GKOP.
+              </li>
+              <li>
+                Containerized applications using Docker and deployed them on EKS with autoscaling,
+                liveness / readiness probes and centralized logging.
+              </li>
+              <li>
+                Implemented monitoring & alerting using Prometheus + Grafana & Zabbix to track latency,
+                error rates and resource utilisation.
+              </li>
+              <li>
+                Implemented DR Solution for Postgresql Database (Patroni + Pgbackrest + Pgbouncer setup)
+              </li>
+              <li>
+                Developed automation scripts in Bash, Python, and Ansible to eliminate repetitive administrative tasks and ensure consistent infrastructure
+provisioning.
+              </li>
+            </ul>
+          </article>
+
+          <article class="exp-card">
+            <div class="exp-card__header">
+              <div>
+                <div class="exp-card__role">DevOps Engineer</div>
+                <div class="exp-card__company">SquareOps Technologies Pvt Ltd</div>
+              </div>
+              <div class="exp-card__meta">2022 – 2023 · Onsite Gurugram</div>
+            </div>
+            <ul>
+              <li>
+                Built and maintained Kubernetes clusters using both Amazon EKS and self-hosted K3s/Kubeadm setups to support internal and client
+                facing microservices.
+              </li>
+              <li>
+                Designed and implemented CI pipelines using AWS CodePipeline, CodeBuild, and Jenkins deployed applications via Argo CD and Helm
+                charts.
+              </li>
+              <li>
+                Installed and managed Jenkins and ArgoCD using Helm and Helmfile within custom Kubernetes pods to maintain GitOps-based
+                delivery.
+              </li>
+              <li>
+                Integrated a complete observability stack using Prometheus, Grafana, and Loki, with alerting configured for resource bottlenecks and
+                pod-level failures.
+              </li>
+              <li>
+                Evaluated and deployed modern DevOps tools such as Rancher, Karpenter, Istio, and SonarQube; contributed to decisions around
+                service mesh and autoscaling strategies.
+              </li>
+              <li>
+                Developed internal tools and REST APIs using Django REST Framework to streamline team operations and automate data collection
+              </li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+      <div class="container">
+        <div class="section__header">
+          <h2 class="section__title">Selected Projects</h2>
+          <p class="section__subtitle">
+            A few examples of the type of work I enjoy doing.
+          </p>
+        </div>
+        <div class="projects-grid">
+          <article class="project-card">
+            <h3>Cloud-Native CI/CD Pipeline</h3>
+            <p>
+              End-to-end CI/CD pipeline for a microservices app – including unit tests, security
+              scans, Docker image build, push to registry and rolling deployments to EKS.
+            </p>
+            <div class="project-meta">
+              <span>Jenkins</span>
+              <span>Docker</span>
+              <span>EKS</span>
+              <span>GitHub</span>
+            </div>
+            <a
+              class="project-link"
+              href="https://github.com/Chirag0401"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View on GitHub →
+            </a>
+          </article>
+
+          <article class="project-card">
+            <h3>Terraform-based AWS Environment</h3>
+            <p>
+              Modular Terraform setup to provision VPC, public/private subnets, EC2, RDS and S3 for
+              staging and production environments with environment-specific variables.
+            </p>
+            <div class="project-meta">
+              <span>Terraform</span>
+              <span>AWS</span>
+              <span>IaC</span>
+            </div>
+            <a
+              class="project-link"
+              href="https://github.com/Chirag0401"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View modules →
+            </a>
+          </article>
+
+          <article class="project-card">
+            <h3>Kubernetes Observability Stack</h3>
+            <p>
+              Deployed Prometheus, Alertmanager and Grafana to monitor Kubernetes clusters with
+              dashboards for pod health, resource usage and application latency.
+            </p>
+            <div class="project-meta">
+              <span>Prometheus</span>
+              <span>Grafana</span>
+              <span>Kubernetes</span>
+            </div>
+            <a
+              class="project-link"
+              href="https://github.com/Chirag0401"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Dashboards & configs →
+            </a>
+          </article>
+
+          <article class="project-card">
+            <h3>Automation Scripts & Tools</h3>
+            <p>
+              Collection of Bash / Python utilities to standardise server setup, log collection and
+              simple health checks across environments.
+            </p>
+            <div class="project-meta">
+              <span>Bash</span>
+              <span>Python</span>
+              <span>Linux</span>
+            </div>
+            <a
+              class="project-link"
+              href="https://github.com/Chirag0401"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Utility repo →
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <div class="container">
+        <div class="section__header">
+          <h2 class="section__title">Contact</h2>
+          <p class="section__subtitle">
+            The easiest ways to reach out or learn more about my work.
+          </p>
+        </div>
+        <div class="contact-grid">
+          <div class="contact-card">
+            <p>
+              If my profile looks relevant for your team, I’d be happy to discuss how I can help
+              with your DevOps / SRE needs.
+            </p>
+            <ul class="contact-list">
+              <li>
+                <span>Email:</span>
+                <a href="mailto:chip2741@gmail.com">Gmail</a>
+              </li>
+              <li>
+                <span>GitHub:</span>
+                <a
+                  href="https://github.com/Chirag0401"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  GitHub
+                </a>
+              </li>
+              <li>
+                <span>LinkedIn:</span>
+                <a
+                  href="https://www.https://www.linkedin.com/in/chirag-sharma-a64844192/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  linkedin
+                </a>
+              </li>
+            </ul>
+            <p class="contact-note">
+              I usually respond within 24 hours. Short, direct messages with context about your
+              stack or role are appreciated.
+            </p>
+          </div>
+
+          <!-- Simple static form (you can later wire this with Formspree / Netlify Forms) -->
+          <div class="contact-card">
+            <form
+              class="contact-form"
+              action="https://formspree.io/f/YOUR_FORMSPREE_ID"
+              method="POST"
+            >
+              <div>
+                <label for="name">Name</label>
+                <input id="name" name="name" type="text" placeholder="Your name" required />
+              </div>
+              <div>
+                <label for="email">Email</label>
+                <input
+                  id="email"
+                  name="_replyto"
+                  type="email"
+                  placeholder="you@example.com"
+                  required
+                />
+              </div>
+              <div>
+                <label for="message">Message</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  placeholder="A short note about how we can work together."
+                  required
+                ></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">Send Message</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div>© <span id="year"></span> Chirag Sharma. All rights reserved.</div>
+        <div class="footer-links">
+          <a href="#home" data-scroll="#home">Back to top</a>
+          <a
+            href="https://github.com/Chirag0401"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            GitHub
+          </a>
+          <a
+            href="https://www.linkedin.com/in/chirag-sharma-a64844192/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            LinkedIn
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile nav toggle
+    const navToggle = document.getElementById("navToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    if (navToggle && navLinks) {
+      navToggle.addEventListener("click", () => {
+        navLinks.classList.toggle("nav__links--open");
+      });
+    }
+
+    // Smooth scroll for links with data-scroll
+    document.querySelectorAll("[data-scroll]").forEach((link) => {
+      link.addEventListener("click", (e) => {
+        const targetSelector = link.getAttribute("data-scroll");
+        const targetEl = document.querySelector(targetSelector);
+        if (targetEl) {
+          e.preventDefault();
+          targetEl.scrollIntoView({ behavior: "smooth", block: "start" });
+          // Close mobile nav after click
+          navLinks.classList.remove("nav__links--open");
+        }
+      });
+    });
+
+    // Footer year
+    const yearSpan = document.getElementById("year");
+    if (yearSpan) {
+      yearSpan.textContent = new Date().getFullYear();
+    }
+  </script>
+</body>
+</html>
